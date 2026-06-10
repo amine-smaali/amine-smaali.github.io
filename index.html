@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amine SMAALI — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:          #F5F0E8;
+      --bg2:         #EDE7DB;
+      --surface:     #FEFCF8;
+      --border:      #DDD5C8;
+      --accent:      #3B4A6B;
+      --amber:       #C07B3A;
+      --text:        #1C1813;
+      --muted:       #8A7D70;
+      --light-muted: #B0A498;
+      --heading:     'Playfair Display', serif;
+      --body:        'DM Sans', sans-serif;
+      --radius:      10px;
+      --ease:        0.22s ease;
+      --shadow:      0 2px 12px rgba(28,24,19,0.08), 0 1px 3px rgba(28,24,19,0.05);
+      --shadow-lg:   0 8px 30px rgba(28,24,19,0.10), 0 2px 8px rgba(28,24,19,0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 6vw;
+      background: rgba(245,240,232,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--heading); font-weight: 700; font-size: 1.1rem; color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--muted); transition: color var(--ease); }
+    .nav-links a:hover { color: var(--text); }
+
+    /* SECTIONS */
+    section { padding: 100px 6vw; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-family: var(--body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.6rem; }
+    h2 { font-family: var(--heading); font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: 1.2rem; }
+
+    /* HERO */
+    #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 80px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 100px;
+      padding: 0.35rem 1rem; font-size: 0.8rem; font-weight: 500; color: var(--muted);
+      margin-bottom: 2rem; width: fit-content; box-shadow: var(--shadow);
+    }
+    .hero-tag::before { content:''; width:7px; height:7px; background:#4CAF79; border-radius:50%; animation: blink 1.6s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+    h1 { font-family: var(--heading); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--text); margin-bottom: 1.4rem; }
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--muted); max-width: 520px; margin-bottom: 2.8rem; line-height: 1.75; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1.6rem; border-radius: 8px; font-family: var(--body); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all var(--ease); border: none; }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 2px 8px rgba(59,74,107,0.25); }
+    .btn-primary:hover { background: #2e3b58; transform: translateY(-2px); box-shadow: 0 4px 14px rgba(59,74,107,0.3); }
+    .btn-outline { background: var(--surface); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* ABOUT */
+    #about { border-top: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; margin-top: 2.5rem; }
+    .about-text p { color: var(--muted); margin-bottom: 1.1rem; font-size: 1rem; }
+    .about-image { position: relative; }
+    .about-placeholder {
+      width: 100%; aspect-ratio: 4/5; border-radius: var(--radius);
+      background: var(--bg2); border: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.6rem; color: var(--light-muted); font-size: 0.85rem; font-weight: 500;
+    }
+    .about-placeholder .photo-icon { font-size: 2.5rem; }
+    .about-image::after {
+      content: ''; position: absolute; top: 12px; left: 12px; right: -12px; bottom: -12px;
+      border-radius: var(--radius); background: var(--bg2); border: 1px solid var(--border); z-index: -1;
+    }
+
+    /* SKILLS */
+    #skills { border-top: 1px solid var(--border); }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+    .skill-tag {
+      background: var(--surface); border: 1px solid var(--border); padding: 0.45rem 1.1rem;
+      border-radius: 100px; font-size: 0.85rem; font-weight: 500; color: var(--text);
+      box-shadow: var(--shadow); transition: all var(--ease);
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: #fff; transform: translateY(-1px); }
+
+    /* PROJECTS */
+    #projects { border-top: 1px solid var(--border); }
+    .projects-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+    .projects-header h2 { margin-bottom: 0; }
+    .gh-status {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; font-weight: 500; color: var(--muted);
+    }
+    .gh-status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--light-muted); flex-shrink: 0; }
+    .gh-status-dot.loading { background: var(--amber); animation: blink 1s infinite; }
+    .gh-status-dot.success { background: #4CAF79; }
+    .gh-status-dot.error   { background: #e05252; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+
+    /* skeleton loader */
+    .skeleton-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.75rem; box-shadow: var(--shadow);
+    }
+    .skeleton-line {
+      background: linear-gradient(90deg, var(--bg2) 25%, var(--border) 50%, var(--bg2) 75%);
+      background-size: 200% 100%;
+      border-radius: 4px; margin-bottom: 0.75rem;
+      animation: shimmer 1.4s infinite;
+    }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+    .skeleton-line.tall  { height: 20px; width: 60%; }
+    .skeleton-line.short { height: 12px; width: 40%; }
+    .skeleton-line.para  { height: 12px; width: 100%; }
+    .skeleton-line.para2 { height: 12px; width: 80%; }
+
+    /* real project card */
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.75rem; box-shadow: var(--shadow); transition: all var(--ease);
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #C9BDB0; }
+    .project-card-top { flex: 1; }
+    .project-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
+    .project-card h3 { font-family: var(--heading); font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .project-card p { color: var(--muted); font-size: 0.875rem; margin-bottom: 1.2rem; line-height: 1.65; }
+    .project-card-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .project-lang { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; color: var(--muted); }
+    .lang-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .project-stars { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--muted); }
+    .project-links { display: flex; gap: 1rem; }
+    .project-link { font-size: 0.82rem; font-weight: 600; color: var(--accent); transition: color var(--ease); }
+    .project-link:hover { color: var(--amber); }
+
+    /* error state */
+    .projects-error {
+      grid-column: 1 / -1;
+      text-align: center; padding: 3rem 2rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      color: var(--muted); font-size: 0.9rem;
+    }
+    .projects-error strong { display: block; font-family: var(--heading); font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; }
+
+    /* CONTACT */
+    #contact { border-top: 1px solid var(--border); text-align: center; }
+    #contact h2 { margin-bottom: 0.75rem; }
+    #contact > p { color: var(--muted); max-width: 480px; margin: 0 auto 2.5rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--surface); border: 1px solid var(--border); padding: 0.7rem 1.4rem;
+      border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+      box-shadow: var(--shadow); transition: all var(--ease);
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2rem 6vw; border-top: 1px solid var(--border); color: var(--light-muted); font-size: 0.82rem; }
+    footer span { color: var(--amber); font-style: italic; font-family: var(--heading); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      section { padding: 80px 5vw; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-image { order: -1; max-width: 240px; }
+      .about-image::after { display: none; }
+    }
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      h1 { letter-spacing: -1.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">YourName.</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag">Available for work</div>
+    <h1>Hi, I'm<br><em>Amine SMAALI</em>.<br>I build things<br>for the web.</h1>
+    <p class="hero-sub">
+      A passionate developer focused on creating clean, user-friendly applications.
+      I turn ideas into fast, functional, and beautiful digital experiences.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View my work ↓</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">Who I am</p>
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Hey! I'm Amine SMAALI, a junior full-stack developer based in Ariana, Tunisia. I have a passion for building things that live on the internet, whether that be websites, applications, or anything in between.</p>
+        <p>I have experience working with [mention your stack, e.g. JavaScript, Python, React, Node.js]. I love clean code, thoughtful design, and solving real problems with technology.</p>
+        <p>When I'm not coding, you can find me [hobby], [hobby], or [hobby].</p>
+      </div>
+      <div class="about-image">
+        <!-- Replace below with: <img src="assets/photo.jpg" alt="Your Name" /> -->
+        <div class="about-placeholder">
+          <span class="photo-icon">🧑‍💻</span>
+          <span>Your photo here</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">What I work with</p>
+    <h2>Skills & Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-tag">HTML</div>
+      <div class="skill-tag">CSS</div>
+      <div class="skill-tag">JavaScript</div>
+      <div class="skill-tag">React</div>
+      <div class="skill-tag">Node.js</div>
+      <div class="skill-tag">Python</div>
+      <div class="skill-tag">Git & GitHub</div>
+      <div class="skill-tag">SQL</div>
+      <div class="skill-tag">REST APIs</div>
+      <div class="skill-tag">Figma</div>
+      <div class="skill-tag">VS Code</div>
+      <div class="skill-tag">Linux</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-header">
+      <div>
+        <p class="section-label">What I've built</p>
+        <h2>Projects</h2>
+      </div>
+      <div class="gh-status">
+        <div class="gh-status-dot loading" id="gh-dot"></div>
+        <span id="gh-status-text">Loading from GitHub…</span>
+      </div>
+    </div>
+    <div class="projects-grid" id="projects-grid">
+      <!-- skeleton placeholders while loading -->
+      <div class="skeleton-card">
+        <div class="skeleton-line tall"></div>
+        <div class="skeleton-line short"></div>
+        <div class="skeleton-line para" style="margin-top:1rem"></div>
+        <div class="skeleton-line para2"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-line tall"></div>
+        <div class="skeleton-line short"></div>
+        <div class="skeleton-line para" style="margin-top:1rem"></div>
+        <div class="skeleton-line para2"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-line tall"></div>
+        <div class="skeleton-line short"></div>
+        <div class="skeleton-line para" style="margin-top:1rem"></div>
+        <div class="skeleton-line para2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Let's talk</p>
+    <h2>Get In Touch</h2>
+    <p>I'm currently open to new opportunities. Whether you have a project, a question, or just want to say hi — my inbox is open!</p>
+    <div class="contact-links">
+      <a href="mailto:smaaliamine5@email.com" class="contact-link">✉️ smaaliamine5@email.com</a>
+      <a href="https://github.com/amine-smaali" target="_blank" class="contact-link">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/amine-smaali-88666631a/" target="_blank" class="contact-link">💼 LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    Designed & built by <span>Amine SMAALI</span> · 2025
+  </footer>
+
+  <script>
+    // ─────────────────────────────────────────────────────────
+    // ✏️  CHANGE THIS to your actual GitHub username
+    // ─────────────────────────────────────────────────────────
+    const GITHUB_USERNAME = "amine-smaali";
+
+    // How many repos to show max (sorted by most recently updated)
+    const MAX_REPOS = 6;
+
+    // Repos to always hide (e.g. your portfolio repo itself)
+    const EXCLUDED = [`${GITHUB_USERNAME}.github.io`];
+
+    // ─────────────────────────────────────────────────────────
+    // Language → color map (extend as needed)
+    // ─────────────────────────────────────────────────────────
+    const LANG_COLORS = {
+      JavaScript: "#f1e05a", TypeScript: "#3178c6", Python: "#3572A5",
+      HTML:       "#e34c26", CSS:        "#563d7c", Java:   "#b07219",
+      "C++":      "#f34b7d", C:          "#555555", "C#":   "#178600",
+      Ruby:       "#701516", Go:         "#00ADD8", Rust:   "#dea584",
+      PHP:        "#4F5D95", Swift:      "#F05138", Kotlin: "#A97BFF",
+      Shell:      "#89e051", Vue:        "#41b883", Dart:   "#00B4AB",
+    };
+
+    // ─────────────────────────────────────────────────────────
+    // Helpers
+    // ─────────────────────────────────────────────────────────
+    function setStatus(state, text) {
+      const dot  = document.getElementById("gh-dot");
+      const span = document.getElementById("gh-status-text");
+      dot.className  = `gh-status-dot ${state}`;
+      span.textContent = text;
+    }
+
+    function langDot(lang) {
+      const color = LANG_COLORS[lang] || "#8A7D70";
+      return `<span class="lang-dot" style="background:${color}"></span>`;
+    }
+
+    function buildCard(repo) {
+      const desc    = repo.description || "No description provided.";
+      const lang    = repo.language    || "—";
+      const stars   = repo.stargazers_count;
+      const repoUrl = repo.html_url;
+      const siteUrl = repo.homepage;
+
+      return `
+        <div class="project-card">
+          <div class="project-card-top">
+            <div class="project-card-header">
+              <h3>${repo.name.replace(/-/g, " ")}</h3>
+            </div>
+            <p>${desc}</p>
+          </div>
+          <div class="project-card-footer">
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <span class="project-lang">${langDot(lang)} ${lang}</span>
+              ${stars > 0 ? `<span class="project-stars">★ ${stars}</span>` : ""}
+            </div>
+            <div class="project-links">
+              ${siteUrl ? `<a href="${siteUrl}" target="_blank" class="project-link">↗ Live</a>` : ""}
+              <a href="${repoUrl}" target="_blank" class="project-link">⌥ GitHub</a>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Fetch & render
+    // ─────────────────────────────────────────────────────────
+    async function loadRepos() {
+      const grid = document.getElementById("projects-grid");
+
+      try {
+        const res = await fetch(
+          `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`
+        );
+
+        if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+
+        const repos = await res.json();
+
+        const filtered = repos
+          .filter(r => !r.fork)                          // skip forks
+          .filter(r => !EXCLUDED.includes(r.name))       // skip excluded
+          .filter(r => r.name !== GITHUB_USERNAME)       // skip profile readme repo
+          .slice(0, MAX_REPOS);
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="projects-error">
+              <strong>No public repos found</strong>
+              Make sure your repos are public and have descriptions on GitHub.
+            </div>`;
+          setStatus("error", "No repos found");
+          return;
+        }
+
+        grid.innerHTML = filtered.map(buildCard).join("");
+        setStatus("success", `${filtered.length} repos loaded`);
+
+      } catch (err) {
+        console.error(err);
+        grid.innerHTML = `
+          <div class="projects-error">
+            <strong>Couldn't load repositories</strong>
+            Check that <code>GITHUB_USERNAME</code> is set correctly in the script,
+            and that your repos are public.
+          </div>`;
+        setStatus("error", "Failed to load");
+      }
+    }
+
+    loadRepos();
+  </script>
+</body>
+</html>
