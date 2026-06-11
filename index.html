@@ -101,40 +101,24 @@
     #projects { border-top: 1px solid var(--border); }
     .projects-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
     .projects-header h2 { margin-bottom: 0; }
-    .gh-status {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.8rem; font-weight: 500; color: var(--muted);
-    }
+    .gh-status { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; font-weight: 500; color: var(--muted); }
     .gh-status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--light-muted); flex-shrink: 0; }
     .gh-status-dot.loading { background: var(--amber); animation: blink 1s infinite; }
     .gh-status-dot.success { background: #4CAF79; }
     .gh-status-dot.error   { background: #e05252; }
-
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
 
-    /* skeleton loader */
-    .skeleton-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 1.75rem; box-shadow: var(--shadow);
-    }
-    .skeleton-line {
-      background: linear-gradient(90deg, var(--bg2) 25%, var(--border) 50%, var(--bg2) 75%);
-      background-size: 200% 100%;
-      border-radius: 4px; margin-bottom: 0.75rem;
-      animation: shimmer 1.4s infinite;
-    }
+    /* skeleton */
+    .skeleton-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); }
+    .skeleton-line { background: linear-gradient(90deg, var(--bg2) 25%, var(--border) 50%, var(--bg2) 75%); background-size: 200% 100%; border-radius: 4px; margin-bottom: 0.75rem; animation: shimmer 1.4s infinite; }
     @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
     .skeleton-line.tall  { height: 20px; width: 60%; }
     .skeleton-line.short { height: 12px; width: 40%; }
     .skeleton-line.para  { height: 12px; width: 100%; }
     .skeleton-line.para2 { height: 12px; width: 80%; }
 
-    /* real project card */
-    .project-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 1.75rem; box-shadow: var(--shadow); transition: all var(--ease);
-      display: flex; flex-direction: column;
-    }
+    /* project card */
+    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); transition: all var(--ease); display: flex; flex-direction: column; }
     .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #C9BDB0; }
     .project-card-top { flex: 1; }
     .project-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
@@ -147,14 +131,7 @@
     .project-links { display: flex; gap: 1rem; }
     .project-link { font-size: 0.82rem; font-weight: 600; color: var(--accent); transition: color var(--ease); }
     .project-link:hover { color: var(--amber); }
-
-    /* error state */
-    .projects-error {
-      grid-column: 1 / -1;
-      text-align: center; padding: 3rem 2rem;
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      color: var(--muted); font-size: 0.9rem;
-    }
+    .projects-error { grid-column: 1 / -1; text-align: center; padding: 3rem 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); color: var(--muted); font-size: 0.9rem; }
     .projects-error strong { display: block; font-family: var(--heading); font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; }
 
     /* CONTACT */
@@ -162,12 +139,7 @@
     #contact h2 { margin-bottom: 0.75rem; }
     #contact > p { color: var(--muted); max-width: 480px; margin: 0 auto 2.5rem; }
     .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .contact-link {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: var(--surface); border: 1px solid var(--border); padding: 0.7rem 1.4rem;
-      border-radius: 8px; font-size: 0.875rem; font-weight: 600;
-      box-shadow: var(--shadow); transition: all var(--ease);
-    }
+    .contact-link { display: flex; align-items: center; gap: 0.5rem; background: var(--surface); border: 1px solid var(--border); padding: 0.7rem 1.4rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600; box-shadow: var(--shadow); transition: all var(--ease); }
     .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
     /* FOOTER */
@@ -191,7 +163,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">YourName.</div>
+    <div class="nav-logo">Amine.</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -202,11 +174,12 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-tag">Available for work</div>
-    <h1>Hi, I'm<br><em>Amine SMAALI</em>.<br>I build things<br>for the web.</h1>
+    <div class="hero-tag">Open to opportunities</div>
+    <h1>Hi, I'm<br><em>Amine SMAALI</em>.<br>I build full-stack<br>web applications.</h1>
     <p class="hero-sub">
-      A passionate developer focused on creating clean, user-friendly applications.
-      I turn ideas into fast, functional, and beautiful digital experiences.
+      CS graduate from the University of Carthage, Tunisia. I design and build
+      complete web applications — from REST APIs and databases to modern,
+      responsive front ends — with a growing interest in AI-powered systems.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View my work ↓</a>
@@ -220,12 +193,25 @@
     <h2>About Me</h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>Hey! I'm Amine SMAALI, a junior full-stack developer based in Ariana, Tunisia. I have a passion for building things that live on the internet, whether that be websites, applications, or anything in between.</p>
-        <p>I have experience working with [mention your stack, e.g. JavaScript, Python, React, Node.js]. I love clean code, thoughtful design, and solving real problems with technology.</p>
-        <p>When I'm not coding, you can find me [hobby], [hobby], or [hobby].</p>
+        <p>
+          Hey! I'm Amine, a full-stack developer based in Ariana, Tunisia. I recently
+          completed my Bachelor's degree in Computer Science (GLSI) at the Faculty of
+          Sciences of Bizerte, University of Carthage.
+        </p>
+        <p>
+          I work across the full stack — building back ends with Symfony, Spring Boot,
+          and FastAPI, and front ends with Next.js, React, and Bootstrap. I'm comfortable
+          with MySQL, Docker, Git, and REST APIs, and I've shipped real-world applications
+          through multiple internships in Tunisia and France.
+        </p>
+        <p>
+          My final-year project at SMWAY (Paris) had me build an AI-powered e-learning
+          platform from scratch — live sessions, AI-graded exams, role-based dashboards —
+          delivered across six Agile SCRUM sprints.
+        </p>
       </div>
       <div class="about-image">
-        <!-- Replace below with: <img src="assets/photo.jpg" alt="Your Name" /> -->
+        <!-- Replace this div with: <img src="assets/photo.jpg" alt="Amine SMAALI" /> -->
         <div class="about-placeholder">
           <span class="photo-icon">🧑‍💻</span>
           <span>Your photo here</span>
@@ -239,18 +225,30 @@
     <p class="section-label">What I work with</p>
     <h2>Skills & Tools</h2>
     <div class="skills-grid">
+      <!-- Languages -->
+      <div class="skill-tag">Java</div>
+      <div class="skill-tag">Python</div>
+      <div class="skill-tag">PHP</div>
+      <div class="skill-tag">JavaScript</div>
       <div class="skill-tag">HTML</div>
       <div class="skill-tag">CSS</div>
-      <div class="skill-tag">JavaScript</div>
-      <div class="skill-tag">React</div>
-      <div class="skill-tag">Node.js</div>
-      <div class="skill-tag">Python</div>
+      <!-- Frameworks -->
+      <div class="skill-tag">Symfony</div>
+      <div class="skill-tag">Spring Boot</div>
+      <div class="skill-tag">Next.js</div>
+      <div class="skill-tag">React.js</div>
+      <div class="skill-tag">FastAPI</div>
+      <div class="skill-tag">Bootstrap</div>
+      <!-- Databases -->
+      <div class="skill-tag">MySQL</div>
+      <div class="skill-tag">MariaDB</div>
+      <div class="skill-tag">SQL Server</div>
+      <div class="skill-tag">SQLite</div>
+      <!-- Tools -->
+      <div class="skill-tag">Docker</div>
       <div class="skill-tag">Git & GitHub</div>
-      <div class="skill-tag">SQL</div>
-      <div class="skill-tag">REST APIs</div>
-      <div class="skill-tag">Figma</div>
-      <div class="skill-tag">VS Code</div>
-      <div class="skill-tag">Linux</div>
+      <div class="skill-tag">Postman</div>
+      <div class="skill-tag">Power BI</div>
     </div>
   </section>
 
@@ -267,7 +265,6 @@
       </div>
     </div>
     <div class="projects-grid" id="projects-grid">
-      <!-- skeleton placeholders while loading -->
       <div class="skeleton-card">
         <div class="skeleton-line tall"></div>
         <div class="skeleton-line short"></div>
@@ -295,7 +292,7 @@
     <h2>Get In Touch</h2>
     <p>I'm currently open to new opportunities. Whether you have a project, a question, or just want to say hi — my inbox is open!</p>
     <div class="contact-links">
-      <a href="mailto:smaaliamine5@email.com" class="contact-link">✉️ smaaliamine5@email.com</a>
+      <a href="mailto:smaaliamine5@gmail.com" class="contact-link">✉️ smaaliamine5@gmail.com</a>
       <a href="https://github.com/amine-smaali" target="_blank" class="contact-link">🐙 GitHub</a>
       <a href="https://www.linkedin.com/in/amine-smaali-88666631a/" target="_blank" class="contact-link">💼 LinkedIn</a>
     </div>
@@ -303,24 +300,14 @@
 
   <!-- FOOTER -->
   <footer>
-    Designed & built by <span>Amine SMAALI</span> · 2025
+    Designed & built by <span>Amine SMAALI</span> · 2026
   </footer>
 
   <script>
-    // ─────────────────────────────────────────────────────────
-    // ✏️  CHANGE THIS to your actual GitHub username
-    // ─────────────────────────────────────────────────────────
     const GITHUB_USERNAME = "amine-smaali";
-
-    // How many repos to show max (sorted by most recently updated)
     const MAX_REPOS = 6;
-
-    // Repos to always hide (e.g. your portfolio repo itself)
     const EXCLUDED = [`${GITHUB_USERNAME}.github.io`];
 
-    // ─────────────────────────────────────────────────────────
-    // Language → color map (extend as needed)
-    // ─────────────────────────────────────────────────────────
     const LANG_COLORS = {
       JavaScript: "#f1e05a", TypeScript: "#3178c6", Python: "#3572A5",
       HTML:       "#e34c26", CSS:        "#563d7c", Java:   "#b07219",
@@ -330,19 +317,13 @@
       Shell:      "#89e051", Vue:        "#41b883", Dart:   "#00B4AB",
     };
 
-    // ─────────────────────────────────────────────────────────
-    // Helpers
-    // ─────────────────────────────────────────────────────────
     function setStatus(state, text) {
-      const dot  = document.getElementById("gh-dot");
-      const span = document.getElementById("gh-status-text");
-      dot.className  = `gh-status-dot ${state}`;
-      span.textContent = text;
+      document.getElementById("gh-dot").className = `gh-status-dot ${state}`;
+      document.getElementById("gh-status-text").textContent = text;
     }
 
     function langDot(lang) {
-      const color = LANG_COLORS[lang] || "#8A7D70";
-      return `<span class="lang-dot" style="background:${color}"></span>`;
+      return `<span class="lang-dot" style="background:${LANG_COLORS[lang] || '#8A7D70'}"></span>`;
     }
 
     function buildCard(repo) {
@@ -351,7 +332,6 @@
       const stars   = repo.stargazers_count;
       const repoUrl = repo.html_url;
       const siteUrl = repo.homepage;
-
       return `
         <div class="project-card">
           <div class="project-card-top">
@@ -373,48 +353,29 @@
         </div>`;
     }
 
-    // ─────────────────────────────────────────────────────────
-    // Fetch & render
-    // ─────────────────────────────────────────────────────────
     async function loadRepos() {
       const grid = document.getElementById("projects-grid");
-
       try {
         const res = await fetch(
           `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`
         );
-
         if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
-
         const repos = await res.json();
-
         const filtered = repos
-          .filter(r => !r.fork)                          // skip forks
-          .filter(r => !EXCLUDED.includes(r.name))       // skip excluded
-          .filter(r => r.name !== GITHUB_USERNAME)       // skip profile readme repo
+          .filter(r => !r.fork)
+          .filter(r => !EXCLUDED.includes(r.name))
+          .filter(r => r.name !== GITHUB_USERNAME)
           .slice(0, MAX_REPOS);
-
         if (filtered.length === 0) {
-          grid.innerHTML = `
-            <div class="projects-error">
-              <strong>No public repos found</strong>
-              Make sure your repos are public and have descriptions on GitHub.
-            </div>`;
+          grid.innerHTML = `<div class="projects-error"><strong>No public repos found</strong>Make sure your repos are public and have descriptions on GitHub.</div>`;
           setStatus("error", "No repos found");
           return;
         }
-
         grid.innerHTML = filtered.map(buildCard).join("");
         setStatus("success", `${filtered.length} repos loaded`);
-
       } catch (err) {
         console.error(err);
-        grid.innerHTML = `
-          <div class="projects-error">
-            <strong>Couldn't load repositories</strong>
-            Check that <code>GITHUB_USERNAME</code> is set correctly in the script,
-            and that your repos are public.
-          </div>`;
+        grid.innerHTML = `<div class="projects-error"><strong>Couldn't load repositories</strong>Make sure your repos are public on GitHub.</div>`;
         setStatus("error", "Failed to load");
       }
     }
