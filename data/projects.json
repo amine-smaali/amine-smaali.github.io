@@ -1,1 +1,52 @@
-{ "repos": [] }
+{
+  "repos": [
+    {
+      "name": "credit-scoring-mlops-pipeline",
+      "description": null,
+      "language": "HTML",
+      "stars": 0,
+      "homepage": null,
+      "url": "https://github.com/amine-smaali/credit-scoring-mlops-pipeline"
+    },
+    {
+      "name": "movie-recommender",
+      "description": "A content-based movie recommender built with Python. Give it a movie title and it returns the 5 most similar movies from the TMDB 5000 dataset",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "homepage": null,
+      "url": "https://github.com/amine-smaali/movie-recommender"
+    },
+    {
+      "name": "mnist-digit-classifier",
+      "description": "Handwritten digit classification on MNIST: preprocessing (normalization, PCA, augmentation) and comparison of Logistic Regression, KNN, Random Forest and SVM.",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "homepage": null,
+      "url": "https://github.com/amine-smaali/mnist-digit-classifier"
+    },
+    {
+      "name": "MyAirportApp",
+      "description": "Developed a mobile application for flight management, featuring an admin panel for CRUD operations and a user space for registration, login and booking. The backend is built in Java, the UI designed in XML, and the data stored in a SQLite database.",
+      "language": "Java",
+      "stars": 0,
+      "homepage": null,
+      "url": "https://github.com/amine-smaali/MyAirportApp"
+    },
+    {
+      "name": "BaniolaForCarRental",
+      "description": "Web application to manage car rentals. It allows customers to browse available cars, make reservations, and manage bookings, while admins can refuse or confirm those reservations.",
+      "language": "HTML",
+      "stars": 0,
+      "homepage": null,
+      "url": "https://github.com/amine-smaali/BaniolaForCarRental"
+    },
+    {
+      "name": "ContactsApp",
+      "description": "Simple Android contacts app, add, edit, delete, all stored locally with SQLite",
+      "language": "Java",
+      "stars": 0,
+      "homepage": null,
+      "url": "https://github.com/amine-smaali/ContactsApp"
+    }
+  ]
+}
