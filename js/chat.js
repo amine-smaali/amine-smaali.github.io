@@ -1,3 +1,4 @@
+
 /* Chat assistant. Set CHAT_URL to the address of your deployed Worker. */
 const CHAT_URL = "https://amine-chat.rede28833.workers.dev";
 const CHAT_EMAIL = "smaaliamine5@gmail.com", MAX_USER_MESSAGES = 15;
@@ -52,22 +53,17 @@ const CHAT_EMAIL = "smaaliamine5@gmail.com", MAX_USER_MESSAGES = 15;
   async function ask() {
     busy = true; send.disabled = true;
     const bubble = add("bot", ""); bubble.classList.add("typing");
-    let text = "";
     try {
       const res = await fetch(CHAT_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: history.slice(-6) }) });
-      if (!res.ok || !res.body) { console.warn("Chat error", res.status, await res.text().catch(() => "")); throw new Error(res.status); }
-      const reader = res.body.getReader(), dec = new TextDecoder(); let buf = "";
-      for (;;) {
-        const { done, value } = await reader.read(); if (done) break;
-        buf += dec.decode(value, { stream: true });
-        const lines = buf.split("\n"); buf = lines.pop();
-        for (const line of lines) {
-          if (!line.startsWith("data:")) continue;
-          const data = line.slice(5).trim(); if (!data || data === "[DONE]") continue;
-          try { const j = JSON.parse(data); text += j.response ?? j.choices?.[0]?.delta?.content ?? ""; bubble.textContent = text; log.scrollTop = log.scrollHeight; } catch {}
-        }
+      if (!res.ok) { console.warn("Chat error", res.status, await res.text().catch(() => "")); throw new Error(res.status); }
+      const text = String((await res.json()).text || "").trim();
+      if (!text) throw new Error("empty");
+      const delay = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 25;
+      let shown = "";
+      for (const word of text.split(/\s+/)) {
+        shown += (shown ? " " : "") + word; bubble.textContent = shown; log.scrollTop = log.scrollHeight;
+        if (delay) await new Promise((r) => setTimeout(r, delay));
       }
-      if (!text.trim()) throw new Error("empty");
       bubble.classList.remove("typing"); history.push({ role: "assistant", content: text });
     } catch (err) {
       console.warn("Chat failed:", err);
