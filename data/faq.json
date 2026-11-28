@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "q": "What technologies does Amine use?", "a": "Back end: Symfony, Spring Boot and FastAPI. Front end: Next.js, React, TypeScript, Tailwind CSS and Bootstrap. Databases: MySQL, MariaDB, SQL Server and SQLite. Tools: Docker, Git, Jira, Postman and Figma." },
+    { "q": "Tell me about his final year project", "a": "At SMWAY, Amine and a partner built an AI powered online learning platform with live sessions, AI graded exams and role based dashboards. They delivered it across six Agile SCRUM sprints." },
+    { "q": "What is his education?", "a": "Amine has a Bachelor's degree in Computer Science (GLSI) from the Faculty of Sciences of Bizerte, University of Carthage, Tunisia." },
+    { "q": "Is he available for work?", "a": "Yes, Amine is open to new opportunities. The fastest way to reach him is by email at smaaliamine5@gmail.com." },
+    { "q": "How can I contact him?", "a": "Email smaaliamine5@gmail.com, or message him on LinkedIn (linkedin.com/in/amine-smaali-88666631a). His code is on github.com/amine-smaali." }
+  ]
+}
