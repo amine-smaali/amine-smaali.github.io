@@ -55,7 +55,7 @@ const CHAT_EMAIL = "smaaliamine5@gmail.com", MAX_USER_MESSAGES = 15;
     let text = "";
     try {
       const res = await fetch(CHAT_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: history.slice(-6) }) });
-      if (!res.ok || !res.body) throw new Error(res.status);
+      if (!res.ok || !res.body) { console.warn("Chat error", res.status, await res.text().catch(() => "")); throw new Error(res.status); }
       const reader = res.body.getReader(), dec = new TextDecoder(); let buf = "";
       for (;;) {
         const { done, value } = await reader.read(); if (done) break;
@@ -69,7 +69,8 @@ const CHAT_EMAIL = "smaaliamine5@gmail.com", MAX_USER_MESSAGES = 15;
       }
       if (!text.trim()) throw new Error("empty");
       bubble.classList.remove("typing"); history.push({ role: "assistant", content: text });
-    } catch {
+    } catch (err) {
+      console.warn("Chat failed:", err);
       history.pop();
       mailFallback(bubble, "I can't answer right now. Please email Amine directly at ");
     }
