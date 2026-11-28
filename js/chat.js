@@ -1,5 +1,5 @@
 /* Chat assistant. Set CHAT_URL to the address of your deployed Worker. */
-const CHAT_URL = "https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev";
+const CHAT_URL = "https://amine-chat.rede28833.workers.dev";
 const CHAT_EMAIL = "smaaliamine5@gmail.com", MAX_USER_MESSAGES = 15;
 
 (async function () {
